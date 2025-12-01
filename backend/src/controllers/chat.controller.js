@@ -1,4 +1,4 @@
-const { generateStreamToken } = require("../lib/Stream.js");
+import  generateStreamToken  from "../lib/stream.js";
 
 async function getStreamToken(req, res) {
     try {
@@ -10,4 +10,4 @@ async function getStreamToken(req, res) {
     }
 }
 
-module.exports = getStreamToken;
+export default getStreamToken;

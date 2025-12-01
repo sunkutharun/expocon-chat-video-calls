@@ -1,6 +1,6 @@
-const dotenv = require("dotenv")
-dotenv.config();
-const {StreamChat} = require("stream-chat")
+import { StreamChat } from "stream-chat";
+import "dotenv/config";
+
 
 const apikey = process.env.STREAM_API_KEY
 const apisecret = process.env.STREAM_API_SECRET
@@ -37,4 +37,4 @@ const streamClient = StreamChat.getInstance(apikey, apisecret);
 
 
 
-  module.exports = {upsertStreamUser,generateStreamToken}
+  export default {upsertStreamUser,generateStreamToken}

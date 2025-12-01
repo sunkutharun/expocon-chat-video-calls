@@ -8,7 +8,7 @@ import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 import chatRoutes from "./routes/chat.route.js";
 
-import connectDB  from "./lib/db.js";
+import connectDB from "./lib/db.js";
 
 const __dirname = path.resolve();
 

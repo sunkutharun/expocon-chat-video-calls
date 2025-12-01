@@ -1,10 +1,10 @@
-const express = require("express");
-const protectRoute = require("../middleware/auth.middleware.js");
+import express from "express";
+import protectRoute from "../middleware/auth.middleware.js";
+
+import  getStreamToken  from "../controllers/chat.controller.js";
+
 const router = express.Router();
-const getStreamToken = require("../controllers/chat.controller.js")
 
+router.get("/token", protectRoute, getStreamToken);
 
-router.get("/token",protectRoute,getStreamToken)
-
-
-module.exports =router;
+export default router;

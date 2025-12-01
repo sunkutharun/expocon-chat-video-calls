@@ -1,7 +1,7 @@
-const User = require("../model/User.js");
-const FriendRequest = require("../model/FriendRequest.js")
+import User from "../models/User.js";
+import FriendRequest from "../models/FriendRequest.js";
 
-async function getRecommendedUsers(req,res) {
+export async function getRecommendedUsers(req,res) {
     try {
      
         const currentUserId = req.user.id;
@@ -22,7 +22,7 @@ async function getRecommendedUsers(req,res) {
     }
 }
 
-async function getMyFriends(req,res) {
+export async function getMyFriends(req,res) {
     try {
         const user = await User.findById(req.user.id).select("friends")
        
@@ -37,7 +37,7 @@ async function getMyFriends(req,res) {
     
 }
 
-async function sendFriendRequest(req,res) {
+export async function sendFriendRequest(req,res) {
     try {
         const myId = req.user.id;
         const { id : recipientId } = req.params;
@@ -78,7 +78,7 @@ async function sendFriendRequest(req,res) {
     }
 }
 
-async function acceptFriendRequest(req,res) {
+export async function acceptFriendRequest(req,res) {
  
     try {
         const {id : requestId}= req.params
@@ -112,7 +112,7 @@ async function acceptFriendRequest(req,res) {
     
 }
 
-async function getFriendRequests(req,res) {
+export async function getFriendRequests(req,res) {
     try {
         const incomingReqs = await FriendRequest.find({
             recipient:req.user.id,
@@ -131,7 +131,7 @@ async function getFriendRequests(req,res) {
     }
 }
 
-async function getOutgoingFriendReqs(req,res) {
+export async function getOutgoingFriendReqs(req,res) {
     try {
         const outgoingRequests = await FriendRequest.find({
             sender:req.user.id,
@@ -145,4 +145,3 @@ async function getOutgoingFriendReqs(req,res) {
          res.status(500).json({message:"interna server error"});
     }
 }
-module.exports = {getRecommendedUsers,getMyFriends,sendFriendRequest,acceptFriendRequest,getFriendRequests,getOutgoingFriendReqs}

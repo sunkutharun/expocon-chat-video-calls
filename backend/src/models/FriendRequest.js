@@ -1,4 +1,4 @@
-const mongoose =require("mongoose");
+import mongoose from "mongoose"
 
 const friendRequestSchema = new mongoose.Schema(
   {
@@ -25,4 +25,4 @@ const friendRequestSchema = new mongoose.Schema(
 
 const FriendRequest = mongoose.model("FriendRequest", friendRequestSchema);
 
-module.exports = FriendRequest;
+export default FriendRequest;
