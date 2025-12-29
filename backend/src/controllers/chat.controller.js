@@ -1,8 +1,10 @@
-import  generateStreamToken  from "../lib/Stream.js";
+import  {generateStreamToken}  from "../lib/Stream.js";
 
 async function getStreamToken(req, res) {
     try {
-        const token = await generateStreamToken(req.user.id); // add await if async
+
+        
+        const token = await generateStreamToken(req.user._id); // add await if async
         res.status(200).json({ token });
     } catch (error) {
         console.error("error in getStreamToken controller:", error.message);
